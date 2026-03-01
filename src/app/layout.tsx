@@ -4,7 +4,7 @@ import "./globals.css";
 import React from "react";
 import CustomCursor from "@/components/CustomCursor";
 import ThemeProvider from "@/components/ThemeProvider";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 
 const prompt = Prompt({
   subsets: ["latin", "thai"],
