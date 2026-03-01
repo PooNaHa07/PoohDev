@@ -20,46 +20,37 @@ export default function Hero() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-32">
-      {/* Decorative Oranges - Moved further out to avoid text overlap */}
-      <FloatingOrange top="15%" left="5%" size={80} delay={0} duration={5} yOffset={30} />
-      <FloatingOrange bottom="20%" right="5%" size={100} delay={1.5} duration={6} yOffset={40} />
-      <FloatingOrange top="35%" right="10%" size={50} delay={0.5} duration={4.5} yOffset={25} />
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 md:pt-32">
+      {/* Decorative Oranges - Adjust sizes for mobile */}
+      <FloatingOrange top="15%" left="5%" size={50} delay={0} duration={5} yOffset={20} className="hidden-mobile" />
+      <FloatingOrange bottom="15%" right="5%" size={60} delay={1.5} duration={6} yOffset={30} className="hidden-mobile" />
+      <FloatingOrange top="45%" right="5%" size={40} delay={0.5} duration={4.5} yOffset={15} />
 
       {/* Background elements */}
       <div 
         className="absolute animate-pulse rounded-full" 
         style={{ 
           top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
-          width: '800px', height: '800px', 
-          backgroundColor: 'rgba(249, 115, 22, 0.1)', 
-          filter: 'blur(100px)', zIndex: -10 
-        }} 
-      />
-      <div 
-        className="absolute rounded-full" 
-        style={{ 
-          top: 0, right: 0,
-          width: '500px', height: '500px', 
+          width: 'clamp(300px, 80vw, 800px)', height: 'clamp(300px, 80vw, 800px)', 
           backgroundColor: 'rgba(249, 115, 22, 0.1)', 
           filter: 'blur(80px)', zIndex: -10 
         }} 
       />
       
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-        <div style={{ maxWidth: '800px' }}>
+        <div style={{ maxWidth: '800px', textAlign: 'center', margin: '0 auto' }} className="md:text-left">
           
           <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-primary" 
-            style={{ fontWeight: 600, marginBottom: '1.5rem', letterSpacing: '0.05em', fontSize: '1.125rem' }}
+            style={{ fontWeight: 600, marginBottom: '1rem', letterSpacing: '0.05em', fontSize: '0.9rem' }}
           >
             ผู้เชี่ยวชาญด้านระบบอัจฉริยะแบบครบวงจร
           </motion.div>
 
-          <div style={{ overflow: "hidden", marginBottom: "0.5rem" }}>
+          <div style={{ marginBottom: "0.25rem" }}>
             <motion.h1 
               custom={1} initial="hidden" animate="visible" variants={textVariant}
               className="heading-lg"
@@ -67,7 +58,7 @@ export default function Hero() {
               เขียนโค้ดเน้น <span className="text-primary">แก้ปัญหา</span>
             </motion.h1>
           </div>
-          <div style={{ overflow: "hidden", marginBottom: "1.5rem" }}>
+          <div style={{ marginBottom: "1rem" }}>
             <motion.h1 
               custom={2} initial="hidden" animate="visible" variants={textVariant}
               className="heading-lg"
@@ -81,21 +72,22 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.8 }}
             className="text-muted" 
-            style={{ fontSize: '1.25rem', maxWidth: '650px', marginBottom: '3rem', lineHeight: 1.6 }}
+            style={{ fontSize: 'clamp(1rem, 4vw, 1.25rem)', maxWidth: '650px', marginBottom: '2.5rem', lineHeight: 1.6, marginLeft: 'auto', marginRight: 'auto' }}
           >
-            ไม่ได้รับแค่ทำเว็บให้สวย แต่รับประกันว่าระบบหลังบ้านต้องโหด! รองรับคนเข้าเยอะ ออกแบบ Database ให้ขยายง่ายแบบไม่สะดุด ด้วยประสบการณ์ตัวจริง
+            ไม่ได้รับแค่ทำเว็บให้สวย แต่รับประกันว่าระบบหลังบ้านต้องโหด! รองรับคนเข้าเยอะ ออกแบบ Database ให้ขยายง่ายแบบไม่สะดุด
           </motion.p>
           
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}
+            style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}
+            className="md:justify-start"
           >
-            <MagneticButton href="#contact" className="btn-primary" style={{ padding: '1.25rem 2.5rem', fontSize: '1.125rem' }}>
+            <MagneticButton href="#contact" className="btn-primary" style={{ padding: '1rem 2rem', fontSize: '1rem' }}>
               คุยโปรเจกต์กันเลย
             </MagneticButton>
-            <MagneticButton href="#works" className="btn-outline" style={{ padding: '1.25rem 2.5rem', fontSize: '1.125rem' }}>
+            <MagneticButton href="#works" className="btn-outline" style={{ padding: '1rem 2rem', fontSize: '1rem' }}>
               ดูผลงานที่ผ่านมา
             </MagneticButton>
           </motion.div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import CuteOrange from "./CuteOrange";
 import FloatingOrange from "./FloatingOrange";
@@ -19,8 +19,28 @@ const skills = [
 export default function SkillOrbit() {
   const [paused, setPaused] = useState<number | null>(null);
   const [tooltip, setTooltip] = useState<string | null>(null);
+  const [orbitRadius, setOrbitRadius] = useState(200);
+  const [iconSize, setIconSize] = useState(56);
 
-  const orbitRadius = 200;   // px – radius of orbit circle
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 480) {
+        setOrbitRadius(120);
+        setIconSize(40);
+      } else if (window.innerWidth < 768) {
+        setOrbitRadius(160);
+        setIconSize(48);
+      } else {
+        setOrbitRadius(200);
+        setIconSize(56);
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const itemCount = skills.length;
 
   return (
@@ -62,8 +82,8 @@ export default function SkillOrbit() {
               position: "absolute",
               top: "50%",
               left: "50%",
-              width: 120,
-              height: 120,
+              width: iconSize * 2,
+              height: iconSize * 2,
               transform: "translate(-50%, -50%)",
               zIndex: 10,
             }}
@@ -127,15 +147,15 @@ export default function SkillOrbit() {
                 >
                   <div
                     style={{
-                      width: 56,
-                      height: 56,
+                      width: iconSize,
+                      height: iconSize,
                       borderRadius: "50%",
                       background: "var(--bg-secondary)",
                       border: "2px solid var(--primary)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      fontSize: "1.5rem",
+                      fontSize: `${iconSize / 2.5}px`,
                       fontWeight: 700,
                       color: "var(--primary)",
                       boxShadow: "0 4px 20px rgba(249,115,22,0.25)",

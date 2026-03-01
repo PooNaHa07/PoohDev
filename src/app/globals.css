@@ -163,6 +163,25 @@ a {
   font-size: 1.125rem;
 }
 
+/* Responsive Utilities */
+@media (max-width: 768px) {
+  .hidden-mobile { display: none !important; }
+  .section-padding { padding: 4rem 0; }
+  .container { padding: 0 1rem; }
+  
+  .heading-lg {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  
+  .heading-md {
+    font-size: clamp(1.75rem, 6vw, 2.25rem);
+  }
+}
+
+@media (min-width: 769px) {
+  .only-mobile { display: none !important; }
+}
+
 /* Animations */
 @keyframes fadeIn {
   from {
