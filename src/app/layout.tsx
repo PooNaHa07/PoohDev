@@ -5,6 +5,7 @@ import React from "react";
 import CustomCursor from "@/components/CustomCursor";
 import ThemeProvider from "@/components/ThemeProvider";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const prompt = Prompt({
   subsets: ["latin", "thai"],
@@ -29,6 +30,7 @@ export default function RootLayout({
           <CustomCursor />
           {children}
           <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
