@@ -82,7 +82,7 @@ export default function Navbar() {
               textDecoration: 'none'
             }}
           >
-            <div style={{ width: '1.8rem', height: '1.8rem', display: 'flex', alignItems: 'center' }}>
+            <div style={{ width: 'var(--logo-size-nav)', height: 'var(--logo-size-nav)', display: 'flex', alignItems: 'center' }}>
               <CuteOrange mood={logoMood} />
             </div>
             <span>Pooh<span className="text-primary">Dev</span></span>

@@ -11,6 +11,9 @@
 
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(255, 255, 255, 0.3);
+
+  --logo-size-nav: 1.8rem;
+  --logo-size-footer: 2rem;
 }
 
 /* Dark mode via .dark class (set by ThemeProvider) */
@@ -175,6 +178,11 @@ a {
   
   .heading-md {
     font-size: clamp(1.75rem, 6vw, 2.25rem);
+  }
+
+  :root {
+    --logo-size-nav: 1.4rem;
+    --logo-size-footer: 1.6rem;
   }
 }
 

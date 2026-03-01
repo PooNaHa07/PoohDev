@@ -41,7 +41,7 @@ export default function Footer() {
                 textDecoration: 'none'
               }}
             >
-              <div style={{ width: '2rem', height: '2rem', display: 'flex', alignItems: 'center' }}>
+              <div style={{ width: 'var(--logo-size-footer)', height: 'var(--logo-size-footer)', display: 'flex', alignItems: 'center' }}>
                 <CuteOrange mood={logoMood} />
               </div>
               <span>Pooh<span className="text-primary">Dev</span></span>
