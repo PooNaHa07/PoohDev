@@ -4,6 +4,7 @@ import "./globals.css";
 import React from "react";
 import CustomCursor from "@/components/CustomCursor";
 import ThemeProvider from "@/components/ThemeProvider";
+import { Analytics } from "@vercel/analytics/react";
 
 const prompt = Prompt({
   subsets: ["latin", "thai"],
@@ -27,6 +28,7 @@ export default function RootLayout({
         <ThemeProvider>
           <CustomCursor />
           {children}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
