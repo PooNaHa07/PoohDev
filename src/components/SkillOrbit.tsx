@@ -133,7 +133,7 @@ export default function SkillOrbit() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => {
-              play("pop");
+              play("click");
               setCenterMoodIndex((prev) => (prev + 1) % moods.length);
             }}
           >
