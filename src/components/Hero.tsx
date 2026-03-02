@@ -24,7 +24,7 @@ export default function Hero() {
       {/* Decorative Oranges - Adjust sizes for mobile */}
       <FloatingOrange top="15%" left="5%" size={50} delay={0} duration={5} yOffset={20} className="hidden-mobile" />
       <FloatingOrange bottom="15%" right="5%" size={60} delay={1.5} duration={6} yOffset={30} className="hidden-mobile" />
-      <FloatingOrange top="45%" right="5%" size={40} delay={0.5} duration={4.5} yOffset={15} />
+      <FloatingOrange top="75%" right="5%" size={40} delay={0.5} duration={4.5} yOffset={15} />
 
       {/* Background elements */}
       <div 
@@ -55,7 +55,7 @@ export default function Hero() {
               custom={1} initial="hidden" animate="visible" variants={textVariant}
               className="heading-lg"
             >
-              เขียนโค้ดเน้น <span className="text-primary">แก้ปัญหา</span>
+              รับออกแบบ <span className="text-primary">& พัฒนาระบบ</span>
             </motion.h1>
           </div>
           <div style={{ marginBottom: "1rem" }}>
@@ -63,7 +63,7 @@ export default function Hero() {
               custom={2} initial="hidden" animate="visible" variants={textVariant}
               className="heading-lg"
             >
-              ออกแบบระบบให้ <span className="text-primary">ใช้งานจริง</span>
+              ครอบคลุม <span className="text-primary">ทุกความต้องการ</span>
             </motion.h1>
           </div>
 
@@ -74,7 +74,10 @@ export default function Hero() {
             className="text-muted" 
             style={{ fontSize: 'clamp(1rem, 4vw, 1.25rem)', maxWidth: '650px', marginBottom: '2.5rem', lineHeight: 1.6, marginLeft: 'auto', marginRight: 'auto' }}
           >
-            ไม่ได้รับแค่ทำเว็บให้สวย แต่รับประกันว่าระบบหลังบ้านต้องโหด! รองรับคนเข้าเยอะ ออกแบบ Database ให้ขยายง่ายแบบไม่สะดุด
+            🚀 รับทำ Web App | จัดการข้อมูล | แก้ไขบัค | พัฒนาต่อยอดระบบเดิม<br/>
+            💻 PHP • MySQL • Google Apps Script • Automation<br/>
+            💸 ราคานักศึกษา เริ่มต้น 300.- (คุยง่าย งานไว ใส่ใจทุกโปรเจกต์)<br/>
+            📥 ยินดีรับงานทุกสเกล ปรึกษาฟรี ทักแชทได้เลยครับ!
           </motion.p>
           
           <motion.div 

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import CuteOrange, { OrangeMood } from "./CuteOrange";
 import { useSoundManager } from "@/hooks/useSoundManager";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Footer() {
   const { play } = useSoundManager();
@@ -11,6 +11,7 @@ export default function Footer() {
 
   useEffect(() => {
     const moods: OrangeMood[] = ["happy", "surprised", "wink", "excited", "neutral"];
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     setLogoMood(moods[Math.floor(Math.random() * moods.length)]);
   }, []);
   
@@ -55,9 +56,12 @@ export default function Footer() {
             <div>
               <h4 style={{ fontWeight: 600, marginBottom: '1.25rem' }}>เมนู</h4>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                {['บริการ', 'ทักษะ', 'ผลงาน'].map(item => (
+                {['แนะนำตัว', 'บริการ', 'ทักษะ', 'ผลงาน', 'รางวัล'].map(item => (
                   <li key={item}>
-                    <Link href={`#${item === 'บริการ' ? 'services' : item === 'ทักษะ' ? 'skills' : 'works'}`} className="text-muted hover:text-primary transition-colors">
+                    <Link 
+                      href={`#${item === 'แนะนำตัว' ? 'about' : item === 'บริการ' ? 'services' : item === 'ทักษะ' ? 'skills' : item === 'ผลงาน' ? 'works' : 'awards'}`} 
+                      className="text-muted hover:text-primary transition-colors"
+                    >
                       {item}
                     </Link>
                   </li>

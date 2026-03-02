@@ -6,19 +6,19 @@ import FloatingOrange from "./FloatingOrange";
 export default function Services() {
   const services = [
     {
-      title: 'เว็บแอปพลิเคชันเฉพาะทาง',
-      desc: 'พัฒนาระบบด้วย Next.js และ React ที่รองรับ Business Logic ที่ซับซ้อนของคุณโดยเฉพาะ เขียนโค้ดสะอาด สเกลได้จริง ไม่ใช่แค่เอา Template มาย้ำ',
+      title: 'Web Application & Backend',
+      desc: 'พัฒนาระบบด้วย Next.js, React หรือ PHP + MySQL ที่รองรับ Business Logic ซับซ้อน เขียนโค้ดสะอาด สเกลได้จริง พร้อมระบบหลังบ้านจัดการข้อมูล',
       icon: '💻'
     },
     {
-      title: 'เชื่อมต่อ API & System Integration',
-      desc: 'ผสานระบบเก่ากับระบบใหม่ หรือเชื่อมต่อ 3rd Party API เช่น ระบบ Payment Gateway รูดบัตร สแกนจ่าย ครบจบในที่เดียว',
+      title: 'API & Automation',
+      desc: 'เชื่อมต่อ 3rd Party API หรือจัดการข้อมูลด้วย Google Apps Script และสร้างระบบ Automation เพื่อลดขั้นตอนการทำงานที่ซ้ำซ้อน',
       icon: '⚙️'
     },
     {
-      title: 'Landing Page ระดับพรีเมียม',
-      desc: 'โหลดไว ดีไซน์เฉียบขาด มี Micro-interactions เหนือกว่าคู่แข่ง เพื่อเพิ่ม Conversion Rate สร้างยอดขายให้พุ่งกระฉูด',
-      icon: '🚀'
+      title: 'Bug Fixes & Maintenance',
+      desc: 'รับแก้บัคที่หาไม่เจอ หรือพัฒนาต่อยอดระบบเดิมที่พังจนท้อ ให้กลับมาใช้งานได้ลื่นไหลและมีประสิทธิภาพสูงสุด',
+      icon: '🛠️'
     }
   ];
 
@@ -50,9 +50,9 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           style={{ textAlign: 'center', marginBottom: '4rem' }}
         >
-          <h2 className="heading-md">บริการ<span className="text-primary">ระดับตัวตึง</span></h2>
-          <p className="text-muted" style={{ maxWidth: '700px', margin: '0 auto', fontSize: '1.125rem' }}>
-            ตั้งแต่ Landing Page ดึงดูดลูกค้า ไปจนถึงระบบหลังบ้านสุดซับซ้อน เราจัดการให้คุณแบบ End-to-End
+          <h2 className="heading-md">บริการ<span className="text-primary">ระดับผู้เชี่ยวชาญ</span></h2>
+          <p className="text-muted" style={{ maxWidth: '750px', margin: '0 auto', fontSize: '1.125rem' }}>
+            ครบเครื่องเรื่องงานระบบ ตั้งแต่ Web App หลังบ้าน, Automation, ไปจนถึงการแก้บัคและพัฒนาต่อยอดระบบเดิม
           </p>
         </motion.div>
 

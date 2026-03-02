@@ -1,0 +1,52 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "ระบบบริหารจัดการบุคลากร (ICU Dashboard)",
+      "desc": "ระบบจัดการข้อมูลบุคลากรทางการแพทย์ พร้อมแดชบอร์ดสรุปสถิติ Gen, สถานะการจ้าง และความเชี่ยวชาญ คัดกรองข้อมูลแบบเรียลไทม์",
+      "image": "/projects/icu-dashboard.png",
+      "tags": ["Google Apps Script", "React", "Tailwind"],
+      "link": "#"
+    },
+    {
+      "id": 2,
+      "title": "School Management System",
+      "desc": "ระบบบริหารจัดการโรงเรียนครบวงจร ตั้งแต่ทะเบียนนักเรียน การเงิน ไปจนถึงรายงานผลการเรียน ดีไซน์ทันสมัย ใช้งานง่าย",
+      "image": "/projects/school-management.png",
+      "tags": ["Next.js", "MySQL", "Dashboard"],
+      "link": "#"
+    },
+    {
+      "id": 3,
+      "title": "Smart Inventory App",
+      "desc": "แอปพลิเคชันจัดการสต็อกสินค้า รองรับการสแกน และแจ้งเตือนเมื่อสินค้าใกล้หมด พร้อมระบบตัดสต็อกอัตโนมัติ",
+      "image": "/projects/inventory-app.png",
+      "tags": ["Mobile Web", "Automation", "Inventory"],
+      "link": "#"
+    },
+    {
+      "id": 4,
+      "title": "Automation Workflow Dashboard",
+      "desc": "แดชบอร์ดติดตามสถานะการทำงานอัตโนมัติ (Workflow Automation) เชื่อมต่อ API หลายช่องทาง แสดงผลแบบ Real-time HUD",
+      "image": "/projects/automation-dash.png",
+      "tags": ["Automation", "API", "Status Monitor"],
+      "link": "#"
+    }
+  ],
+  "awards": [
+    {
+      "id": 1,
+      "title": "Excellence in Web Development",
+      "issuer": "Web Dev Institute",
+      "year": "2024",
+      "image": "/awards/web-cert.png"
+    },
+    {
+      "id": 2,
+      "title": "Best Developer Award",
+      "issuer": "Tech Innovation Hub",
+      "year": "2023",
+      "image": "/awards/best-dev-trophy.png"
+    }
+  ]
+}

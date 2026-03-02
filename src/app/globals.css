@@ -40,11 +40,11 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: none !important; /* Hide default cursor */
+  cursor: none !important;
 }
 
-a, button, input, textarea, select {
-  cursor: none !important; /* Hide default cursor on interactive items too */
+a, button, input, textarea, select, .work-card {
+  cursor: none !important;
 }
 
 a {
@@ -109,7 +109,7 @@ a {
   font-weight: 500;
   transition: all 0.2s ease;
   border: none;
-  cursor: none;
+  cursor: pointer;
 }
 
 .btn-primary:hover {
@@ -129,7 +129,7 @@ a {
   font-weight: 500;
   transition: all 0.2s ease;
   border: 1px solid var(--border-color);
-  cursor: none;
+  cursor: pointer;
 }
 
 .btn-outline:hover {
@@ -237,7 +237,7 @@ a {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   transition: all 0.3s ease;
-  cursor: none;
+  cursor: pointer;
 }
 
 .work-card:hover {

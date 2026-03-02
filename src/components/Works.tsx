@@ -1,106 +1,156 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+import MagneticButton from "./MagneticButton";
 import FloatingOrange from "./FloatingOrange";
+import ImageLightbox from "./ImageLightbox";
 import { useState, useEffect } from "react";
-import { fetchGithubRepos, GithubRepo } from "@/lib/github";
+
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  link: string;
+}
 
 export default function Works() {
-  const [projects, setProjects] = useState<GithubRepo[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [selectedImage, setSelectedImage] = useState<{ src: string, alt: string } | null>(null);
 
   useEffect(() => {
-    const getRepos = async () => {
-      // Fetching repos for the user PooNaHa07
-      const repos = await fetchGithubRepos("PooNaHa07");
-      setProjects(repos);
-      setLoading(false);
-    };
-
-    getRepos();
+    fetch('/api/portfolio')
+      .then(res => res.json())
+      .then(data => {
+        setProjects(data.projects || []);
+      })
+      .catch(err => {
+        console.error('Failed to fetch projects:', err);
+      });
   }, []);
 
   return (
     <section id="works" className="section-padding relative overflow-hidden" style={{ backgroundColor: 'var(--bg-color)' }}>
       {/* Decorative Oranges */}
-      <FloatingOrange top="5%" right="5%" size={70} delay={0.3} duration={5.5} yOffset={25} />
-      <FloatingOrange bottom="5%" left="10%" size={90} delay={1.5} duration={7} yOffset={35} />
-      <FloatingOrange top="50%" left="5%" size={50} delay={0.8} duration={4.5} yOffset={20} />
+      <FloatingOrange top="15%" right="5%" size={80} delay={0.2} duration={5} yOffset={25} />
+      <FloatingOrange bottom="10%" left="10%" size={60} delay={0.8} duration={4} yOffset={20} />
 
       <div className="container">
         <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
           style={{ textAlign: 'center', marginBottom: '4rem' }}
         >
-          <h2 className="heading-md">ผลงาน<span className="text-primary">ชิ้นเอก</span></h2>
-          <p className="text-muted" style={{ maxWidth: '600px', margin: '0 auto', fontSize: '1.125rem' }}>
-            ตัวอย่างบางส่วนจากระบบจริงที่ผ่านมา สร้างความน่าเชื่อถือให้กับทุกอุตสาหกรรม
+          <h2 className="heading-md">ผลงาน<span className="text-primary">ที่ภาคภูมิใจ</span></h2>
+          <p className="text-muted" style={{ maxWidth: '700px', margin: '0 auto', fontSize: '1.125rem' }}>
+            คัดสรรโปรเจกต์คุณภาพที่พิสูจน์ถึงความเชี่ยวชาญและการใส่ใจในทุกรายละเอียด
           </p>
         </motion.div>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '2.5rem'
-        }}>
-          {loading ? (
-            <div style={{ textAlign: 'center', gridColumn: '1/-1', padding: '4rem' }}>
-              <p className="text-muted">กำลังดึงข้อมูลจาก GitHub...</p>
-            </div>
-          ) : projects.length === 0 ? (
-            <div style={{ textAlign: 'center', gridColumn: '1/-1', padding: '4rem' }}>
-              <p className="text-muted">ไม่พบโปรเจกต์สาธารณะ</p>
-            </div>
-          ) : projects.map((proj, i) => (
+        <div 
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '2.5rem'
+          }}
+        >
+          {projects.map((project, index) => (
             <motion.div 
-              key={proj.id} 
-              className="work-card"
-              initial={{ opacity: 0, y: 100 }}
+              key={project.id} 
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, delay: i * 0.1, type: "spring" }}
-              onClick={() => window.open(proj.html_url, '_blank')}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group relative"
+              style={{
+                background: 'var(--bg-secondary)',
+                borderRadius: '24px',
+                overflow: 'hidden',
+                border: '1px solid var(--border-color)',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+              }}
+              whileHover={{ y: -10, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
             >
-              <div 
-                className="work-image-placeholder"
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '3rem',
-                  gap: '1rem'
-                }}
-              >
-                <span>📦</span>
-                <span style={{ fontSize: '1rem', opacity: 0.7 }}>{proj.language || 'Code'}</span>
-              </div>
-              <div style={{ padding: '2rem' }}>
-                <span style={{ fontSize: '0.875rem', color: 'var(--primary)', fontWeight: 600, letterSpacing: '0.02em' }}>
-                  {proj.language || 'Open Source'}
-                </span>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: 600, marginTop: '0.5rem', lineHeight: 1.4 }}>
-                  {proj.name}
-                </h3>
-                <p style={{ marginTop: '1rem', color: 'var(--text-secondary)', fontSize: '0.95rem', lineBreak: 'anywhere' }}>
-                  {proj.description}
-                </p>
-                <div style={{ marginTop: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--primary)', fontWeight: 500, fontSize: '0.875rem' }}>
-                  ดูโค้ดบน GitHub 
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                  </svg>
+              <div style={{ position: 'relative', height: '220px', overflow: 'hidden' }}>
+                <div 
+                  style={{ cursor: 'zoom-in', position: 'relative', width: '100%', height: '100%' }} 
+                  onClick={() => setSelectedImage({ src: project.image, alt: project.title })}
+                >
+                  <Image 
+                    src={project.image} 
+                    alt={project.title} 
+                    fill 
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                    className="group-hover:scale-110"
+                  />
                 </div>
+                <div style={{
+                  position: 'absolute',
+                  top: '1rem',
+                  right: '1rem',
+                  display: 'flex',
+                  gap: '0.5rem',
+                  flexWrap: 'wrap',
+                  justifyContent: 'flex-end'
+                }}>
+                  {(project.tags || []).slice(0, 2).map((tag, i) => (
+                    <span key={i} style={{
+                      padding: '0.3rem 0.8rem',
+                      background: 'rgba(255, 255, 255, 0.9)',
+                      color: 'var(--primary)',
+                      borderRadius: '100px',
+                      fontSize: '0.75rem',
+                      fontWeight: 600,
+                      backdropFilter: 'blur(4px)',
+                      boxShadow: '0 4px 10px rgba(0,0,0,0.1)'
+                    }}>{tag}</span>
+                  ))}
+                </div>
+              </div>
+              
+              <div style={{ padding: '1.5rem' }}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '0.75rem', color: 'var(--text-primary)' }}>
+                  {project.title}
+                </h3>
+                <p className="text-muted" style={{ fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '1.5rem', height: '3.2rem', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
+                  {project.description}
+                </p>
+                <MagneticButton 
+                  href={project.link} 
+                  className="btn-outline" 
+                   style={{ 
+                    padding: '0.6rem 1.2rem', 
+                    fontSize: '0.9rem', 
+                    width: '100%',
+                    justifyContent: 'center'
+                  }}
+                >
+                  รายละเอียดโปรเจกต์ →
+                </MagneticButton>
               </div>
             </motion.div>
           ))}
         </div>
+
+        <div style={{ textAlign: 'center', marginTop: '4rem' }}>
+          <p className="text-muted" style={{ marginBottom: '1.5rem' }}>และยังมีผลงานอื่นๆ อีกมากมายที่พร้อมจะนำเสนอ...</p>
+          <MagneticButton href="#contact" className="btn-primary" style={{ padding: '1rem 2.5rem' }}>
+            เริ่มโปรเจกต์ของคุณกับผม
+          </MagneticButton>
+        </div>
       </div>
+
+      <ImageLightbox 
+        isOpen={!!selectedImage} 
+        onClose={() => setSelectedImage(null)} 
+        src={selectedImage?.src || ""} 
+        alt={selectedImage?.alt || ""} 
+      />
     </section>
   );
 }

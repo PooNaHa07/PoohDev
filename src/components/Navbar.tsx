@@ -6,7 +6,7 @@ import MagneticButton from "./MagneticButton";
 import { useTheme } from "./ThemeProvider";
 import { useSoundManager } from "@/hooks/useSoundManager";
 import CuteOrange, { OrangeMood } from "./CuteOrange";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const { theme, toggle } = useTheme();
@@ -15,6 +15,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const moods: OrangeMood[] = ["happy", "surprised", "wink", "excited", "neutral"];
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     setLogoMood(moods[Math.floor(Math.random() * moods.length)]);
   }, []);
 
@@ -91,7 +92,7 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <div className="hidden-mobile" style={{ display: 'flex', gap: '2rem', alignItems: 'center', fontWeight: 500 }}>
-          {['บริการ', 'ทักษะ', 'ผลงาน', 'ติดต่อ'].map((item, i) => (
+          {['แนะนำตัว', 'บริการ', 'ทักษะ', 'ผลงาน', 'รางวัล', 'ติดต่อ'].map((item, i) => (
             <motion.div
               key={item}
               initial={{ opacity: 0, y: -20 }}
@@ -99,7 +100,7 @@ export default function Navbar() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
               <Link
-                href={`#${item === 'บริการ' ? 'services' : item === 'ทักษะ' ? 'skills' : item === 'ผลงาน' ? 'works' : 'contact'}`}
+                href={`#${item === 'แนะนำตัว' ? 'about' : item === 'บริการ' ? 'services' : item === 'ทักษะ' ? 'skills' : item === 'ผลงาน' ? 'works' : item === 'รางวัล' ? 'awards' : 'contact'}`}
                 className="nav-link hover:text-primary transition-colors"
                 onMouseEnter={() => play("hover")}
               >
@@ -205,10 +206,10 @@ export default function Navbar() {
               gap: '2.5rem'
             }}
           >
-            {['บริการ', 'ทักษะ', 'ผลงาน', 'ติดต่อ'].map((item) => (
+            {['แนะนำตัว', 'บริการ', 'ทักษะ', 'ผลงาน', 'รางวัล', 'ติดต่อ'].map((item) => (
               <motion.div key={item} variants={linkVariants}>
                 <Link
-                  href={`#${item === 'บริการ' ? 'services' : item === 'ทักษะ' ? 'skills' : item === 'ผลงาน' ? 'works' : 'contact'}`}
+                  href={`#${item === 'แนะนำตัว' ? 'about' : item === 'บริการ' ? 'services' : item === 'ทักษะ' ? 'skills' : item === 'ผลงาน' ? 'works' : item === 'รางวัล' ? 'awards' : 'contact'}`}
                   style={{ fontSize: '2rem', fontWeight: 600 }}
                   onClick={() => setIsMenuOpen(false)}
                 >

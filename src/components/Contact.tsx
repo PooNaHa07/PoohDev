@@ -5,20 +5,6 @@ import MagneticButton from "./MagneticButton";
 import FloatingOrange from "./FloatingOrange";
 
 export default function Contact() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-  };
 
   return (
     <section id="contact" className="section-padding relative overflow-hidden">
@@ -42,11 +28,7 @@ export default function Contact() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '2rem' }}>
               <div>
                 <strong style={{ display: 'block', fontSize: '1rem', marginBottom: '0.25rem' }}>อีเมลติดต่องานด่วน</strong>
-                <a href="mailto:hello@poohdev.com" className="text-primary hover:text-primary-hover transition-colors" style={{ fontSize: '1.25rem', fontWeight: 600 }}>hello@poohdev.com</a>
-              </div>
-              <div>
-                <strong style={{ display: 'block', fontSize: '1rem', marginBottom: '0.25rem' }}>โซนทำงาน</strong>
-                <span className="text-muted" style={{ fontSize: '1.125rem' }}>กรุงเทพมหานคร (Remote ทั่วโลก)</span>
+                <a href="mailto:pucharapon.poo@gmail.com" className="text-primary hover:text-primary-hover transition-colors" style={{ fontSize: '1.25rem', fontWeight: 600 }}>pucharapon.poo@gmail.com</a>
               </div>
             </div>
           </motion.div>

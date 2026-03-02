@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Prompt } from "next/font/google";
 import "./globals.css";
 import React from "react";
-import CustomCursor from "@/components/CustomCursor";
 import ThemeProvider from "@/components/ThemeProvider";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -17,6 +16,8 @@ export const metadata: Metadata = {
   title: "พูห์ | นักพัฒนาเว็บไซต์และระบบอัจฉริยะ",
   description: "รับทำเว็บไซต์ระบบซับซ้อน (Web Applications) และเชื่อมต่อ API ทุกรูปแบบ สร้างสรรค์งานคุณภาพพรีเมียม",
 };
+
+import CustomCursor from "@/components/CustomCursor";
 
 export default function RootLayout({
   children,
