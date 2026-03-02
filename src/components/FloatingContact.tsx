@@ -44,7 +44,7 @@ export default function FloatingContact() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-4">
+    <div className="fixed bottom-8 right-8 z-[9999] flex flex-col items-center gap-4">
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -103,7 +103,7 @@ export default function FloatingContact() {
       <button
         onClick={toggleMenu}
         aria-label="Contact Submenu"
-        className="flex items-center justify-center w-14 h-14 rounded-full bg-[var(--primary)] text-[#fff] shadow-[0_0_20px_rgba(249,115,22,0.5)] hover:bg-[#ea580c] transition-colors relative"
+        className="flex items-center justify-center w-14 h-14 rounded-full bg-[#f97316] text-[#fff] shadow-[0_0_20px_rgba(249,115,22,0.5)] hover:bg-[#ea580c] transition-colors relative"
       >
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
