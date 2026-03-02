@@ -54,6 +54,7 @@ export default function FloatingContact() {
         flexDirection: 'column',
         alignItems: 'center',
         gap: '1rem',
+        pointerEvents: 'auto'
       }}
     >
       <AnimatePresence>
@@ -82,10 +83,10 @@ export default function FloatingContact() {
                 height: '3rem',
                 borderRadius: '50%',
                 backgroundColor: '#EA4335',
-                color: 'white',
                 boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
                 transition: 'transform 0.2s',
                 textDecoration: 'none',
+                pointerEvents: 'auto'
               }}
               onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.1)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
@@ -108,10 +109,10 @@ export default function FloatingContact() {
                 height: '3rem',
                 borderRadius: '50%',
                 backgroundColor: '#00B900',
-                color: 'white',
                 boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
                 transition: 'transform 0.2s',
                 textDecoration: 'none',
+                pointerEvents: 'auto'
               }}
               onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.1)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
@@ -134,10 +135,10 @@ export default function FloatingContact() {
                 height: '3rem',
                 borderRadius: '50%',
                 backgroundColor: '#1877F2',
-                color: 'white',
                 boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
                 transition: 'transform 0.2s',
                 textDecoration: 'none',
+                pointerEvents: 'auto'
               }}
               onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.1)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
@@ -164,6 +165,7 @@ export default function FloatingContact() {
           border: 'none',
           cursor: 'pointer',
           transition: 'background-color 0.2s',
+          pointerEvents: 'auto'
         }}
         onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#ea580c'; }}
         onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#f97316'; }}
