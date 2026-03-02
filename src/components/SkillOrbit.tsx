@@ -74,9 +74,9 @@ export default function SkillOrbit() {
   return (
     <section id="skills" className="section-padding relative overflow-hidden" style={{ backgroundColor: "var(--bg-color)", overflow: "hidden" }}>
       {/* Decorative Oranges */}
-      <FloatingOrange top="10%" left="5%" size={50} delay={0} duration={5} yOffset={20} />
-      <FloatingOrange bottom="15%" right="8%" size={70} delay={2} duration={6} yOffset={25} />
-      <FloatingOrange top="85%" left="15%" size={40} delay={1} duration={4} yOffset={15} />
+      <FloatingOrange top="10%" left="5%" size={50} delay={0} duration={5} yOffset={20} className="hidden-mobile" />
+      <FloatingOrange bottom="15%" right="8%" size={70} delay={2} duration={6} yOffset={25} className="hidden-mobile" />
+      <FloatingOrange top="85%" left="15%" size={40} delay={1} duration={4} yOffset={15} className="hidden-mobile" />
 
       <div className="container relative z-10">
         <motion.div

@@ -18,9 +18,9 @@ export default function About() {
   return (
     <section id="about" className="section-padding relative overflow-hidden" style={{ backgroundColor: 'var(--bg-secondary)' }}>
       {/* Decorative Oranges */}
-      <FloatingOrange top="10%" left="5%" size={60} delay={0} yOffset={20} />
+      <FloatingOrange top="10%" left="5%" size={60} delay={0} yOffset={20} className="hidden-mobile" />
       
-      <div className="container">
+      <div className="container relative z-10">
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',

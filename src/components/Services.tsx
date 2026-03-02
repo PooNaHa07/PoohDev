@@ -38,11 +38,11 @@ export default function Services() {
   return (
     <section id="services" className="section-padding relative overflow-hidden" style={{ backgroundColor: 'var(--bg-secondary)' }}>
       {/* Decorative Oranges */}
-      <FloatingOrange top="10%" left="5%" size={60} delay={0.5} duration={5} yOffset={20} />
-      <FloatingOrange bottom="10%" right="5%" size={80} delay={1.2} duration={6} yOffset={30} />
-      <FloatingOrange top="40%" right="10%" size={40} delay={0} duration={4} yOffset={15} />
+      <FloatingOrange top="10%" left="5%" size={60} delay={0.5} duration={5} yOffset={20} className="hidden-mobile" />
+      <FloatingOrange bottom="10%" right="5%" size={80} delay={1.2} duration={6} yOffset={30} className="hidden-mobile" />
+      <FloatingOrange top="40%" right="10%" size={40} delay={0} duration={4} yOffset={15} className="hidden-mobile" />
 
-      <div className="container">
+      <div className="container relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

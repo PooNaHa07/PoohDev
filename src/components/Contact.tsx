@@ -9,10 +9,10 @@ export default function Contact() {
   return (
     <section id="contact" className="section-padding relative overflow-hidden">
       {/* Decorative Oranges */}
-      <FloatingOrange top="15%" right="10%" size={90} delay={0.2} duration={5.5} yOffset={35} />
-      <FloatingOrange bottom="15%" left="5%" size={70} delay={1} duration={4} yOffset={25} />
+      <FloatingOrange top="15%" right="10%" size={90} delay={0.2} duration={5.5} yOffset={35} className="hidden-mobile" />
+      <FloatingOrange bottom="15%" left="5%" size={70} delay={1} duration={4} yOffset={25} className="hidden-mobile" />
 
-      <div className="container" style={{ position: 'relative', zIndex: 1, display: 'flex', flexWrap: 'wrap', gap: '2rem' }}>
+      <div className="container relative z-10" style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem' }}>
         
         <div style={{ flex: '1 1 300px' }}>
           <motion.div

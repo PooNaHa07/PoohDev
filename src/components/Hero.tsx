@@ -24,7 +24,7 @@ export default function Hero() {
       {/* Decorative Oranges - Adjust sizes for mobile */}
       <FloatingOrange top="15%" left="5%" size={50} delay={0} duration={5} yOffset={20} className="hidden-mobile" />
       <FloatingOrange bottom="15%" right="5%" size={60} delay={1.5} duration={6} yOffset={30} className="hidden-mobile" />
-      <FloatingOrange top="75%" right="5%" size={40} delay={0.5} duration={4.5} yOffset={15} />
+      <FloatingOrange top="75%" right="5%" size={40} delay={0.5} duration={4.5} yOffset={15} className="hidden-mobile" />
 
       {/* Background elements */}
       <div 
@@ -37,7 +37,7 @@ export default function Hero() {
         }} 
       />
       
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+      <div className="container relative z-10">
         <div style={{ maxWidth: '800px', textAlign: 'center', margin: '0 auto' }} className="md:text-left">
           
           <motion.div 

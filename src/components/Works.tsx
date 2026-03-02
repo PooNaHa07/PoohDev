@@ -34,10 +34,10 @@ export default function Works() {
   return (
     <section id="works" className="section-padding relative overflow-hidden" style={{ backgroundColor: 'var(--bg-color)' }}>
       {/* Decorative Oranges */}
-      <FloatingOrange top="15%" right="5%" size={80} delay={0.2} duration={5} yOffset={25} />
-      <FloatingOrange bottom="10%" left="10%" size={60} delay={0.8} duration={4} yOffset={20} />
+      <FloatingOrange top="15%" right="5%" size={80} delay={0.2} duration={5} yOffset={25} className="hidden-mobile" />
+      <FloatingOrange bottom="10%" left="10%" size={60} delay={0.8} duration={4} yOffset={20} className="hidden-mobile" />
 
-      <div className="container">
+      <div className="container relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
