@@ -44,7 +44,18 @@ export default function FloatingContact() {
   };
 
   return (
-    <div className="fixed bottom-8 right-8 z-[9999] flex flex-col items-center gap-4">
+    <div
+      style={{
+        position: 'fixed',
+        bottom: '2rem',
+        right: '2rem',
+        zIndex: 9999,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '1rem',
+      }}
+    >
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -52,19 +63,34 @@ export default function FloatingContact() {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="flex flex-col gap-3"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.75rem',
+            }}
           >
             {/* Email */}
             <motion.a
               variants={itemVariants}
               href="mailto:pucharapon.poo@gmail.com"
-              className="flex items-center justify-center w-12 h-12 rounded-full bg-[#EA4335] text-white shadow-lg hover:scale-110 transition-transform relative group"
               title="Email: pucharapon.poo@gmail.com"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '3rem',
+                height: '3rem',
+                borderRadius: '50%',
+                backgroundColor: '#EA4335',
+                color: 'white',
+                boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                transition: 'transform 0.2s',
+                textDecoration: 'none',
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.1)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
             >
               <Mail size={20} />
-              <div className="absolute right-14 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                Email
-              </div>
             </motion.a>
 
             {/* Line */}
@@ -73,13 +99,24 @@ export default function FloatingContact() {
               href="https://line.me/ti/p/~0649149413"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-12 h-12 rounded-full bg-[#00B900] text-white shadow-lg hover:scale-110 transition-transform relative group"
               title="LINE ID / Phone: 0649149413"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '3rem',
+                height: '3rem',
+                borderRadius: '50%',
+                backgroundColor: '#00B900',
+                color: 'white',
+                boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                transition: 'transform 0.2s',
+                textDecoration: 'none',
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.1)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
             >
               <LineIcon size={22} />
-              <div className="absolute right-14 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                0649149413
-              </div>
             </motion.a>
 
             {/* Facebook */}
@@ -88,13 +125,24 @@ export default function FloatingContact() {
               href="https://www.facebook.com/profile.php?id=61587585403600"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-12 h-12 rounded-full bg-[#1877F2] text-white shadow-lg hover:scale-110 transition-transform relative group"
               title="Facebook Fanpage"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '3rem',
+                height: '3rem',
+                borderRadius: '50%',
+                backgroundColor: '#1877F2',
+                color: 'white',
+                boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                transition: 'transform 0.2s',
+                textDecoration: 'none',
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.1)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
             >
               <Facebook size={24} fill="currentColor" stroke="none" />
-              <div className="absolute right-14 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                Facebook
-              </div>
             </motion.a>
           </motion.div>
         )}
@@ -103,12 +151,33 @@ export default function FloatingContact() {
       <button
         onClick={toggleMenu}
         aria-label="Contact Submenu"
-        className="flex items-center justify-center w-14 h-14 rounded-full bg-[#f97316] text-[#fff] shadow-[0_0_20px_rgba(249,115,22,0.5)] hover:bg-[#ea580c] transition-colors relative"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '3.5rem',
+          height: '3.5rem',
+          borderRadius: '50%',
+          backgroundColor: '#f97316',
+          color: 'white',
+          boxShadow: '0 0 20px rgba(249, 115, 22, 0.5)',
+          border: 'none',
+          cursor: 'pointer',
+          transition: 'background-color 0.2s',
+        }}
+        onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#ea580c'; }}
+        onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#f97316'; }}
       >
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3, type: "spring", stiffness: 200 }}
-          className="absolute inset-0 flex items-center justify-center"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
         >
           {isOpen ? <X size={26} /> : <MessageCircle size={26} fill="white" />}
         </motion.div>
