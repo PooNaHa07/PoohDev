@@ -42,6 +42,7 @@ export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState<TabType>("projects");
   const [loading, setLoading] = useState(true);
   const [isSyncing, setIsSyncing] = useState(false);
+  const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     fetchData();
@@ -138,6 +139,40 @@ export default function AdminDashboard() {
       (newData[type as TabType] as any[]).push(item);
     }
     saveData(newData);
+  };
+
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files || e.target.files.length === 0) return;
+    const file = e.target.files[0];
+    setUploading(true);
+
+    try {
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${editingItem?.type || 'media'}_${Date.now()}.${fileExt}`;
+      const filePath = `${fileName}`;
+
+      const { supabase } = await import('@/lib/supabase');
+
+      const { error: uploadError } = await supabase.storage
+        .from('portfolio')
+        .upload(filePath, file);
+
+      if (uploadError) {
+        throw uploadError;
+      }
+
+      const { data } = supabase.storage
+        .from('portfolio')
+        .getPublicUrl(filePath);
+
+      if (editingItem) {
+        setEditingItem({ ...editingItem, image: data.publicUrl });
+      }
+    } catch (error: any) {
+      alert(`อัปโหลดรูปล้มเหลว: ${error.message}\n\nกรุณาตรวจสอบว่าได้สร้าง Storage Bucket ชื่อ "portfolio" และเปิดเป็น Public ใน Supabase แล้ว`);
+    } finally {
+      setUploading(false);
+    }
   };
 
   if (!isAuthenticated) {
@@ -408,15 +443,43 @@ export default function AdminDashboard() {
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                       <label style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                        <ImageIcon size={12} /> Image URL
+                        <ImageIcon size={12} /> Image URL or Upload
                       </label>
-                      <input 
-                        className="form-input"
-                        style={{ background: 'rgba(255, 255, 255, 0.05)', borderRadius: '16px', margin: 0 }}
-                        value={editingItem.image} 
-                        onChange={e => setEditingItem({...editingItem, image: e.target.value})} 
-                        required 
-                      />
+                      <div style={{ display: 'flex', gap: '0.5rem' }}>
+                        <input 
+                          className="form-input"
+                          style={{ background: 'rgba(255, 255, 255, 0.05)', borderRadius: '16px', margin: 0, flex: 1 }}
+                          value={editingItem.image} 
+                          onChange={e => setEditingItem({...editingItem, image: e.target.value})} 
+                          required 
+                        />
+                        <input
+                          type="file"
+                          accept="image/*"
+                          id="image-upload"
+                          style={{ display: 'none' }}
+                          onChange={handleFileUpload}
+                        />
+                        <label 
+                          htmlFor="image-upload"
+                          style={{
+                            background: 'var(--primary)',
+                            color: '#fff',
+                            padding: '0 1rem',
+                            borderRadius: '16px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            cursor: 'pointer',
+                            fontWeight: 700,
+                            fontSize: '0.875rem',
+                            opacity: uploading ? 0.7 : 1,
+                            pointerEvents: uploading ? 'none' : 'auto'
+                          }}
+                        >
+                          {uploading ? <Loader2 size={16} className="animate-spin" /> : "Upload"}
+                        </label>
+                      </div>
                     </div>
                     
                     {editingItem.type === 'awards' && (
