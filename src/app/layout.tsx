@@ -13,7 +13,7 @@ const prompt = Prompt({
 });
 
 export const metadata: Metadata = {
-  title: "พูห์ | นักพัฒนาเว็บไซต์และระบบอัจฉริยะ",
+  title: "PoohDev | นักพัฒนาเว็บไซต์และระบบอัจฉริยะ",
   description: "รับทำเว็บไซต์ระบบซับซ้อน (Web Applications) และเชื่อมต่อ API ทุกรูปแบบ สร้างสรรค์งานคุณภาพพรีเมียม",
 };
 
