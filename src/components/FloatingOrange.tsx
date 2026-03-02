@@ -74,11 +74,12 @@ export default function FloatingOrange({
         left,
         right,
         bottom,
-        zIndex: 5,
+        zIndex: 20,
         cursor: 'pointer',
         pointerEvents: 'auto'
       }}
-      onClick={handleInteraction}
+      onTap={handleInteraction}
+      whileTap={{ scale: 0.9 }}
       animate={{
         y: [0, -yOffset, 0],
         rotate: [-5, 5, -5],
