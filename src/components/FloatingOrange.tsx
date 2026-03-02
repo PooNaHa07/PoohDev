@@ -28,14 +28,28 @@ export default function FloatingOrange({
   right,
   bottom,
 }: FloatingOrangeProps) {
-  const [mood, setMood] = useState<OrangeMood>("happy");
+  const [mood, setMood] = useState<OrangeMood>(() => {
+    const moods: OrangeMood[] = ["happy", "surprised", "wink", "excited", "neutral"];
+    return moods[Math.floor(Math.random() * moods.length)];
+  });
   const [trick, setTrick] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const { play } = useSoundManager();
 
   useEffect(() => {
-    const moods: OrangeMood[] = ["happy", "surprised", "wink", "excited", "neutral"];
-    setMood(moods[Math.floor(Math.random() * moods.length)]);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // Scale down to 50% on mobile, minimum 25px
+  const currentSize = isMobile ? Math.max(25, size * 0.5) : size;
+  
+  // Strip hidden-mobile if it was passed, so they show up on mobile
+  const finalClassName = className.replace("hidden-mobile", "").trim();
 
   const handleInteraction = () => {
     // 1. Play sound
@@ -52,10 +66,10 @@ export default function FloatingOrange({
 
   return (
     <motion.div
-      className={`absolute z-0 ${className}`}
+      className={`absolute z-0 ${finalClassName}`}
       style={{ 
-        width: size, 
-        height: size,
+        width: currentSize, 
+        height: currentSize,
         top,
         left,
         right,
