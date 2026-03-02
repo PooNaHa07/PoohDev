@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import MagneticButton from "./MagneticButton";
 import FloatingOrange from "./FloatingOrange";
+import { FacebookIcon, LineIcon, GmailIcon } from "./Icons";
 
 export default function Contact() {
 
@@ -29,14 +30,23 @@ export default function Contact() {
               <div>
                 <strong style={{ display: 'block', fontSize: '1rem', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>ช่องทางการติดต่อ</strong>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=pucharapon.poo@gmail.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-hover transition-colors" style={{ fontSize: '1.15rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <span>📧 Email:</span> pucharapon.poo@gmail.com
+                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=pucharapon.poo@gmail.com" target="_blank" rel="noopener noreferrer" className="text-secondary hover:opacity-80 transition-opacity" style={{ fontSize: '1.15rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    <div style={{ width: '2rem', height: '2rem', borderRadius: '50%', backgroundColor: '#EA4335', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <GmailIcon size={18} />
+                    </div>
+                    <span>Email: <span className="text-primary">pucharapon.poo@gmail.com</span></span>
                   </a>
-                  <a href="https://www.facebook.com/profile.php?id=61587585403600" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-hover transition-colors" style={{ fontSize: '1.15rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <span>🔵 Facebook:</span> PoohDev Fanpage
+                  <a href="https://www.facebook.com/profile.php?id=61587585403600" target="_blank" rel="noopener noreferrer" className="text-secondary hover:opacity-80 transition-opacity" style={{ fontSize: '1.15rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    <div style={{ width: '2rem', height: '2rem', borderRadius: '50%', backgroundColor: '#1877F2', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <FacebookIcon size={18} />
+                    </div>
+                    <span>Facebook: <span className="text-primary">PoohDev Fanpage</span></span>
                   </a>
-                  <a href="https://line.me/ti/p/~0649149413" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-hover transition-colors" style={{ fontSize: '1.15rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <span>🟢 Line:</span> 0649149413
+                  <a href="https://line.me/ti/p/~0649149413" target="_blank" rel="noopener noreferrer" className="text-secondary hover:opacity-80 transition-opacity" style={{ fontSize: '1.15rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    <div style={{ width: '2rem', height: '2rem', borderRadius: '50%', backgroundColor: '#00B900', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <LineIcon size={18} />
+                    </div>
+                    <span>Line: <span className="text-primary">0649149413</span></span>
                   </a>
                 </div>
               </div>

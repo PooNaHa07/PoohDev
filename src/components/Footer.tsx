@@ -4,6 +4,7 @@ import Link from "next/link";
 import CuteOrange, { OrangeMood } from "./CuteOrange";
 import { useSoundManager } from "@/hooks/useSoundManager";
 import { useState, useEffect } from "react";
+import { FacebookIcon, LineIcon, GmailIcon } from "./Icons";
 
 export default function Footer() {
   const { play } = useSoundManager();
@@ -70,15 +71,30 @@ export default function Footer() {
             </div>
             <div>
               <h4 style={{ fontWeight: 600, marginBottom: '1.25rem' }}>โซเชียล</h4>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 <li>
-                  <a href="https://www.facebook.com/profile.php?id=61587585403600" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-primary transition-colors">Facebook</a>
+                  <a href="https://www.facebook.com/profile.php?id=61587585403600" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-primary transition-colors" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                    <div style={{ width: '1.5rem', height: '1.5rem', borderRadius: '50%', backgroundColor: '#1877F2', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <FacebookIcon size={12} />
+                    </div>
+                    <span>Facebook</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="https://line.me/ti/p/~0649149413" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-primary transition-colors">Line</a>
+                  <a href="https://line.me/ti/p/~0649149413" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-primary transition-colors" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                    <div style={{ width: '1.5rem', height: '1.5rem', borderRadius: '50%', backgroundColor: '#00B900', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <LineIcon size={12} />
+                    </div>
+                    <span>Line</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=pucharapon.poo@gmail.com" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-primary transition-colors">Gmail</a>
+                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=pucharapon.poo@gmail.com" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-primary transition-colors" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                    <div style={{ width: '1.5rem', height: '1.5rem', borderRadius: '50%', backgroundColor: '#EA4335', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <GmailIcon size={12} />
+                    </div>
+                    <span>Gmail</span>
+                  </a>
                 </li>
               </ul>
             </div>
