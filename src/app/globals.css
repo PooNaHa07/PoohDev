@@ -40,11 +40,16 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: none !important;
 }
 
-a, button, input, textarea, select, .work-card {
-  cursor: none !important;
+/* Hide default cursor only on desktop (mouse) devices - not on mobile touch */
+@media (pointer: fine) {
+  body {
+    cursor: none !important;
+  }
+  a, button, input, textarea, select, .work-card {
+    cursor: none !important;
+  }
 }
 
 a {
