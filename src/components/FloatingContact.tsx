@@ -73,10 +73,12 @@ export default function FloatingContact() {
             {/* Email */}
             <motion.a
               variants={itemVariants}
-              href="mailto:pucharapon.poo@gmail.com"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=pucharapon.poo@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={(e) => {
                 e.preventDefault();
-                window.location.href = "mailto:pucharapon.poo@gmail.com";
+                window.open("https://mail.google.com/mail/?view=cm&fs=1&to=pucharapon.poo@gmail.com", "_blank");
               }}
               style={{
                 display: 'flex',
@@ -168,6 +170,7 @@ export default function FloatingContact() {
         onClick={toggleMenu}
         aria-label="Contact Submenu"
         style={{
+          position: 'relative',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -180,7 +183,8 @@ export default function FloatingContact() {
           border: 'none',
           cursor: 'pointer',
           transition: 'background-color 0.2s',
-          pointerEvents: 'auto'
+          pointerEvents: 'auto',
+          flexShrink: 0
         }}
         onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#ea580c'; }}
         onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#f97316'; }}
