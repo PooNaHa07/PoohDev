@@ -78,7 +78,7 @@ export default function FloatingContact() {
               rel="noopener noreferrer"
               onClick={(e) => {
                 e.preventDefault();
-                window.open("https://mail.google.com/mail/?view=cm&fs=1&to=pucharapon.poo@gmail.com", "_blank");
+                window.open("https://mail.google.com/mail/?view=cm&fs=1&to=pucharapon.poo@gmail.com", "_blank", "noopener,noreferrer");
               }}
               style={{
                 display: 'flex',
