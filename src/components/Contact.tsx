@@ -25,10 +25,20 @@ export default function Contact() {
             <p className="text-muted" style={{ marginBottom: '1.5rem', fontSize: '1.125rem', lineHeight: 1.6 }}>
               ไม่ว่าจะเป็นระบบใหม่แกะกล่อง หรืออัปเกรดระบบเดิมที่พังจนท้อ ให้ผมดูแลจบครบวงจร
             </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '2rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: '2.5rem' }}>
               <div>
-                <strong style={{ display: 'block', fontSize: '1rem', marginBottom: '0.25rem' }}>อีเมลติดต่องานด่วน</strong>
-                <a href="mailto:pucharapon.poo@gmail.com" className="text-primary hover:text-primary-hover transition-colors" style={{ fontSize: '1.25rem', fontWeight: 600 }}>pucharapon.poo@gmail.com</a>
+                <strong style={{ display: 'block', fontSize: '1rem', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>ช่องทางการติดต่อ</strong>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=pucharapon.poo@gmail.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-hover transition-colors" style={{ fontSize: '1.15rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span>📧 Email:</span> pucharapon.poo@gmail.com
+                  </a>
+                  <a href="https://www.facebook.com/profile.php?id=61587585403600" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-hover transition-colors" style={{ fontSize: '1.15rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span>🔵 Facebook:</span> PoohDev Fanpage
+                  </a>
+                  <a href="https://line.me/ti/p/~0649149413" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-hover transition-colors" style={{ fontSize: '1.15rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span>🟢 Line:</span> 0649149413
+                  </a>
+                </div>
               </div>
             </div>
           </motion.div>

@@ -71,11 +71,15 @@ export default function Footer() {
             <div>
               <h4 style={{ fontWeight: 600, marginBottom: '1.25rem' }}>โซเชียล</h4>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                {['GitHub', 'LinkedIn', 'Facebook'].map(item => (
-                  <li key={item}>
-                    <a href="#" className="text-muted hover:text-primary transition-colors">{item}</a>
-                  </li>
-                ))}
+                <li>
+                  <a href="https://www.facebook.com/profile.php?id=61587585403600" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-primary transition-colors">Facebook</a>
+                </li>
+                <li>
+                  <a href="https://line.me/ti/p/~0649149413" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-primary transition-colors">Line</a>
+                </li>
+                <li>
+                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=pucharapon.poo@gmail.com" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-primary transition-colors">Gmail</a>
+                </li>
               </ul>
             </div>
           </div>
