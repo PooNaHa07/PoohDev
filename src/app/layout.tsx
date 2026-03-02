@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 };
 
 import CustomCursor from "@/components/CustomCursor";
+import FloatingContact from "@/components/FloatingContact";
 
 export default function RootLayout({
   children,
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body className={prompt.className}>
         <ThemeProvider>
           <CustomCursor />
+          <FloatingContact />
           {children}
           <Analytics />
           <SpeedInsights />
