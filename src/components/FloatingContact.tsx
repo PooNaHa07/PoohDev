@@ -74,7 +74,10 @@ export default function FloatingContact() {
             <motion.a
               variants={itemVariants}
               href="mailto:pucharapon.poo@gmail.com"
-              title="Email: pucharapon.poo@gmail.com"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "mailto:pucharapon.poo@gmail.com";
+              }}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -83,10 +86,12 @@ export default function FloatingContact() {
                 height: '3rem',
                 borderRadius: '50%',
                 backgroundColor: '#EA4335',
+                color: 'white',
                 boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
                 transition: 'transform 0.2s',
                 textDecoration: 'none',
-                pointerEvents: 'auto'
+                pointerEvents: 'auto',
+                cursor: 'pointer'
               }}
               onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.1)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
@@ -100,7 +105,10 @@ export default function FloatingContact() {
               href="https://line.me/ti/p/~0649149413"
               target="_blank"
               rel="noopener noreferrer"
-              title="LINE ID / Phone: 0649149413"
+              onClick={(e) => {
+                e.preventDefault();
+                window.open("https://line.me/ti/p/~0649149413", "_blank");
+              }}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -109,10 +117,12 @@ export default function FloatingContact() {
                 height: '3rem',
                 borderRadius: '50%',
                 backgroundColor: '#00B900',
+                color: 'white',
                 boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
                 transition: 'transform 0.2s',
                 textDecoration: 'none',
-                pointerEvents: 'auto'
+                pointerEvents: 'auto',
+                cursor: 'pointer'
               }}
               onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.1)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
@@ -126,7 +136,10 @@ export default function FloatingContact() {
               href="https://www.facebook.com/profile.php?id=61587585403600"
               target="_blank"
               rel="noopener noreferrer"
-              title="Facebook Fanpage"
+              onClick={(e) => {
+                e.preventDefault();
+                window.open("https://www.facebook.com/profile.php?id=61587585403600", "_blank");
+              }}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -135,10 +148,12 @@ export default function FloatingContact() {
                 height: '3rem',
                 borderRadius: '50%',
                 backgroundColor: '#1877F2',
+                color: 'white',
                 boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
                 transition: 'transform 0.2s',
                 textDecoration: 'none',
-                pointerEvents: 'auto'
+                pointerEvents: 'auto',
+                cursor: 'pointer'
               }}
               onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.1)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
